@@ -1,0 +1,187 @@
+import duesseldorfExterior from '../assets/apartment-duesseldorf-exterior.png'
+import duesseldorfInterior from '../assets/apartment-duesseldorf-interior.png'
+import countryEstate from '../assets/luxury-country-estate.png'
+import interior from '../assets/luxury-interior-about.png'
+import penthouse from '../assets/luxury-penthouse.png'
+import villa from '../assets/luxury-villa-hero.png'
+import landhausInterior from '../assets/landhaus-taunus-interior.png'
+import berlinExterior from '../assets/loft-berlin-exterior.png'
+import berlinInterior from '../assets/loft-berlin-interior.png'
+import penthouseInterior from '../assets/penthouse-muenchen-interior.png'
+import hamburgExterior from '../assets/villa-hamburg-exterior.png'
+import hamburgInterior from '../assets/villa-hamburg-interior.png'
+import type { Property } from '../types'
+
+export const properties: Property[] = [
+  {
+    id: 'villa-am-tegernsee',
+    title: 'Architektenvilla mit Alpenpanorama',
+    description:
+      'Großzügige Villa mit Infinity-Pool, bodentiefen Fenstern und unverbaubarem Blick auf die bayerischen Alpen.',
+    transactionType: 'kauf',
+    propertyType: 'haus',
+    status: 'verfuegbar',
+    price: 4850000,
+    rooms: 8,
+    livingArea: 420,
+    plotArea: 1850,
+    address: {
+      street: 'Seeblickweg 18',
+      postalCode: '83707',
+      city: 'Bad Wiessee',
+      state: 'Bayern',
+    },
+    images: [villa, interior],
+    features: ['Infinity-Pool', 'Smart Home', 'Sauna', 'Doppelgarage'],
+    energyCertificate: {
+      type: 'bedarfsausweis',
+      energyValue: 42,
+      energySource: 'Wärmepumpe',
+      yearOfConstruction: 2022,
+    },
+    agentId: 'anna-keller',
+    featured: true,
+  },
+  {
+    id: 'penthouse-muenchen',
+    title: 'Penthouse mit privater Dachterrasse',
+    description:
+      'Exklusives Penthouse mit weitläufiger Terrasse, hochwertigem Innenausbau und Blick über die Stadt.',
+    transactionType: 'kauf',
+    propertyType: 'wohnung',
+    status: 'verfuegbar',
+    price: 3290000,
+    rooms: 5,
+    livingArea: 238,
+    address: {
+      street: 'Prinzregentenstraße 86',
+      postalCode: '81675',
+      city: 'München',
+      state: 'Bayern',
+    },
+    images: [penthouse, penthouseInterior],
+    features: ['Dachterrasse', 'Aufzug', 'Kamin', 'Concierge-Service'],
+    energyCertificate: {
+      type: 'verbrauchsausweis',
+      energyValue: 58,
+      energySource: 'Fernwärme',
+      yearOfConstruction: 2019,
+    },
+    agentId: 'maximilian-vogel',
+    featured: true,
+  },
+  {
+    id: 'landhaus-taunus',
+    title: 'Modernes Landhaus in ruhiger Alleinlage',
+    description:
+      'Zeitlose Architektur aus Naturstein und Holz, eingebettet in eine private Parklandschaft mit Teich.',
+    transactionType: 'kauf',
+    propertyType: 'haus',
+    status: 'reserviert',
+    price: 2750000,
+    rooms: 7,
+    livingArea: 315,
+    plotArea: 4200,
+    address: {
+      street: 'Am Waldsaum 7',
+      postalCode: '61476',
+      city: 'Kronberg im Taunus',
+      state: 'Hessen',
+    },
+    images: [countryEstate, landhausInterior],
+    features: ['Naturbadeteich', 'Bibliothek', 'Gästehaus', 'Weinkeller'],
+    energyCertificate: {
+      type: 'bedarfsausweis',
+      energyValue: 51,
+      energySource: 'Erdwärme',
+      yearOfConstruction: 2020,
+    },
+    agentId: 'anna-keller',
+    featured: true,
+  },
+  {
+    id: 'loft-berlin-mitte',
+    title: 'Design-Loft mit Galerie und Innenhofblick',
+    description:
+      'Lichtdurchflutetes Loft mit offener Galerie, maßgefertigten Einbauten und ruhiger Lage im historischen Hofensemble.',
+    transactionType: 'miete',
+    propertyType: 'wohnung',
+    status: 'verfuegbar',
+    price: 6900,
+    rooms: 4,
+    livingArea: 186,
+    address: {
+      street: 'Linienstraße 112',
+      postalCode: '10115',
+      city: 'Berlin',
+      state: 'Berlin',
+    },
+    images: [berlinExterior, berlinInterior],
+    features: ['Galerie', 'Fußbodenheizung', 'Einbauküche', 'Fahrradraum'],
+    energyCertificate: {
+      type: 'verbrauchsausweis',
+      energyValue: 72,
+      energySource: 'Fernwärme',
+      yearOfConstruction: 2016,
+    },
+    agentId: 'maximilian-vogel',
+    featured: false,
+  },
+  {
+    id: 'villa-hamburg-elbchaussee',
+    title: 'Repräsentative Villa nahe der Elbe',
+    description:
+      'Elegantes Familienanwesen mit großzügigen Wohnbereichen, geschütztem Garten und hochwertiger Ausstattung.',
+    transactionType: 'kauf',
+    propertyType: 'haus',
+    status: 'verfuegbar',
+    price: 3950000,
+    rooms: 9,
+    livingArea: 380,
+    plotArea: 1600,
+    address: {
+      street: 'Elbchaussee 215',
+      postalCode: '22605',
+      city: 'Hamburg',
+      state: 'Hamburg',
+    },
+    images: [hamburgExterior, hamburgInterior],
+    features: ['Gartenpavillon', 'Kamin', 'Fitnessraum', 'Alarmanlage'],
+    energyCertificate: {
+      type: 'bedarfsausweis',
+      energyValue: 66,
+      energySource: 'Gas',
+      yearOfConstruction: 2014,
+    },
+    agentId: 'anna-keller',
+    featured: false,
+  },
+  {
+    id: 'city-apartment-duesseldorf',
+    title: 'Möbliertes Luxus-Apartment am Hofgarten',
+    description:
+      'Bezugsfertiges Apartment mit maßgefertigtem Interieur, Concierge und kurzen Wegen zur Königsallee.',
+    transactionType: 'miete',
+    propertyType: 'wohnung',
+    status: 'vermietet',
+    price: 4800,
+    rooms: 3,
+    livingArea: 124,
+    address: {
+      street: 'Jägerhofstraße 24',
+      postalCode: '40479',
+      city: 'Düsseldorf',
+      state: 'Nordrhein-Westfalen',
+    },
+    images: [duesseldorfExterior, duesseldorfInterior],
+    features: ['Möbliert', 'Concierge', 'Balkon', 'Tiefgarage'],
+    energyCertificate: {
+      type: 'verbrauchsausweis',
+      energyValue: 61,
+      energySource: 'Fernwärme',
+      yearOfConstruction: 2018,
+    },
+    agentId: 'maximilian-vogel',
+    featured: false,
+  },
+]
