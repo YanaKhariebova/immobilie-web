@@ -1,20 +1,18 @@
-import { Link } from '@tanstack/react-router'
-import { ArrowRight } from 'lucide-react'
-import luxuryVilla from '../../assets/luxury-villa-hero.png'
-import { Eyebrow } from '../atoms/Eyebrow'
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import luxuryVilla from "../../assets/luxury-villa-hero.webp";
+import { Eyebrow } from "../atoms/Eyebrow";
+import { QuickSearchForm } from "../molecules/QuickSearchForm";
 
 export function HeroSection() {
   return (
     <section className="relative isolate min-h-[85svh] overflow-hidden bg-ink-950 text-white">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 scale-105 bg-cover bg-center bg-no-repeat lg:bg-fixed"
+        className="absolute inset-0 -z-20 scale-105 bg-cover bg-center bg-no-repeat bg-fixed max-[479px]:bg-scroll motion-reduce:bg-scroll"
         style={{ backgroundImage: `url(${luxuryVilla})` }}
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-black/55"
-      />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/55" />
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/20 to-transparent"
@@ -29,11 +27,13 @@ export function HeroSection() {
             Ihr neues Zuhause beginnt mit der richtigen Beratung.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-            Wir begleiten Käufer, Mieter und Eigentümer zuverlässig durch
-            jede Phase ihrer Immobilienentscheidung.
+            Wir begleiten Käufer, Mieter und Eigentümer zuverlässig durch jede
+            Phase ihrer Immobilienentscheidung.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <QuickSearchForm />
+
+          <div className="mt-6 flex flex-wrap gap-4">
             <Link
               to="/immobilien"
               className="inline-flex items-center gap-2 bg-white px-6 py-3 font-semibold text-ink-950 transition hover:bg-sand-100"
@@ -55,5 +55,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

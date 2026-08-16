@@ -10,6 +10,7 @@ interface InquiryFormProps {
 
 export function InquiryForm({ agent, property }: InquiryFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const agentName = `${agent.firstName} ${agent.lastName}`
   const agentInitials = `${agent.firstName[0]}${agent.lastName[0]}`
 
@@ -21,7 +22,7 @@ export function InquiryForm({ agent, property }: InquiryFormProps) {
       >
         <p className="font-display text-2xl text-white">Vielen Dank für Ihre Anfrage.</p>
         <p className="mt-3 leading-7 text-white/65">
-          {agentName} wird sich schnellstmöglich bei Ihnen melden.
+          Ihre Angaben wurden in dieser Demo nicht an einen Server übertragen.
         </p>
         <button
           type="button"
@@ -71,9 +72,23 @@ export function InquiryForm({ agent, property }: InquiryFormProps) {
       </div>
 
       <form
+        noValidate
         className="mt-6"
+        onInput={() => setErrorMessage('')}
         onSubmit={(event) => {
           event.preventDefault()
+          const firstInvalidField =
+            event.currentTarget.querySelector<HTMLElement>(':invalid')
+
+          if (firstInvalidField) {
+            setErrorMessage(
+              'Bitte füllen Sie alle Pflichtfelder korrekt aus und bestätigen Sie den Datenschutz.',
+            )
+            firstInvalidField.focus()
+            return
+          }
+
+          setErrorMessage('')
           setIsSubmitted(true)
         }}
       >
@@ -83,6 +98,15 @@ export function InquiryForm({ agent, property }: InquiryFormProps) {
         <p className="mt-2 text-sm leading-6 text-white/55">
           Senden Sie uns eine unverbindliche Anfrage.
         </p>
+
+        {errorMessage && (
+          <p
+            role="alert"
+            className="mt-5 border border-red-400/30 bg-red-950/35 px-4 py-3 text-sm text-red-100"
+          >
+            {errorMessage}
+          </p>
+        )}
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           <label className="text-sm font-medium text-white/75">

@@ -1,4 +1,4 @@
-import luxuryInterior from '../../assets/luxury-interior-about.png'
+import luxuryInterior from '../../assets/luxury-interior-about.webp'
 import { Eyebrow } from '../atoms/Eyebrow'
 
 export function AboutHero() {

@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PlaceholderPage } from '../pages/PlaceholderPage'
+import { PrivacyPage } from '../pages/PrivacyPage'
 
-export const Route = createFileRoute('/datenschutz')({ component: () => <PlaceholderPage title="Datenschutz" /> })
+export const Route = createFileRoute('/datenschutz')({
+  component: PrivacyPage,
+})

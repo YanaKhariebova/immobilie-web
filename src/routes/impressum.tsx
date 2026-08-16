@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PlaceholderPage } from '../pages/PlaceholderPage'
+import { ImprintPage } from '../pages/ImprintPage'
 
-export const Route = createFileRoute('/impressum')({ component: () => <PlaceholderPage title="Impressum" /> })
+export const Route = createFileRoute('/impressum')({
+  component: ImprintPage,
+})

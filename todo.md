@@ -19,18 +19,20 @@
 
 ## Phase 3: Seitenentwicklung
 
-- [ ] Startseite mit Hero, Schnellsuche, Highlight-Objekten und Eigentümer-CTA erstellen
+- [x] Startseite mit Hero, Schnellsuche, Highlight-Objekten und Eigentümer-CTA erstellen
+- [x] Kontaktseite mit lokal validiertem Formular erstellen
+- [x] Kundenstimmen als klar gekennzeichnete Mustertexte einbinden
 - [x] Katalogseite mit Filterung nach Kauf oder Miete, Preis und Zimmern erstellen
 - [x] Detailseite mit Galerie, Eckdaten und Maklerkontakt erstellen
-- [ ] Bewertungsseite mit Lead-Formular für Verkäufer erstellen
-- [ ] Entwürfe für Impressum und Datenschutz einbinden
+- [x] Bewertungsseite mit Lead-Formular für Verkäufer erstellen
+- [x] Entwürfe für Impressum und Datenschutz einbinden
 - [ ] Rechtliche Inhalte vor der Veröffentlichung fachlich prüfen lassen
 
 ## Phase 4: Optimierung und Tests
 
-- [ ] Mobile Darstellung prüfen und optimieren
-- [ ] Formularvalidierungen einbauen
-- [ ] Barrierefreiheit prüfen
-- [ ] `npm run lint` ausführen
-- [ ] `npm run build` ausführen
-- [ ] Performance und Lighthouse-Audit durchführen
+- [x] Mobile Darstellung bei 320, 375, 768, 1024 und 1440 Pixel prüfen und optimieren
+- [x] Formularvalidierungen einbauen und im Browser testen
+- [x] Barrierefreiheit prüfen (Lighthouse: 100/100)
+- [x] `npm run lint` ausführen
+- [x] `npm run build` ausführen
+- [x] Performance- und Lighthouse-Audit durchführen (Performance 77, Accessibility 100, Best Practices 100, SEO 100; 16.08.2026)

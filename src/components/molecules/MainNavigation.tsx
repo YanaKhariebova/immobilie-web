@@ -7,15 +7,36 @@ const navigation = [
   { to: '/kontakt', label: 'Kontakt' },
 ] as const
 
-export function MainNavigation() {
+interface MainNavigationProps {
+  ariaLabel?: string
+  layout?: 'horizontal' | 'vertical'
+  onNavigate?: () => void
+}
+
+export function MainNavigation({
+  ariaLabel = 'Hauptnavigation',
+  layout = 'horizontal',
+  onNavigate,
+}: MainNavigationProps) {
   return (
-    <nav aria-label="Hauptnavigation">
-      <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+    <nav aria-label={ariaLabel}>
+      <ul
+        className={
+          layout === 'vertical'
+            ? 'flex flex-col gap-1 text-base'
+            : 'flex items-center gap-x-5 text-sm'
+        }
+      >
         {navigation.map((item) => (
           <li key={item.to}>
             <Link
               to={item.to}
-              className="text-white/75 transition hover:text-white"
+              className={
+                layout === 'vertical'
+                  ? 'block min-h-11 py-2 text-white/75 transition hover:text-white'
+                  : 'text-white/75 transition hover:text-white'
+              }
+              onClick={onNavigate}
               activeProps={{ className: 'font-semibold text-gold-500' }}
             >
               {item.label}

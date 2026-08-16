@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PlaceholderPage } from '../pages/PlaceholderPage'
+import { ValuationPage } from '../pages/ValuationPage'
 
-export const Route = createFileRoute('/bewertung')({ component: () => <PlaceholderPage title="Immobilie bewerten" /> })
+export const Route = createFileRoute('/bewertung')({
+  component: ValuationPage,
+})

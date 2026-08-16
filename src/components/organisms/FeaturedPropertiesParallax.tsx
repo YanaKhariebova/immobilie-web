@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { properties } from '../../data/properties'
 import type { Property } from '../../types'
 import { Eyebrow } from '../atoms/Eyebrow'
@@ -22,8 +22,21 @@ function FeaturedPropertyScene({
   position,
 }: FeaturedPropertySceneProps) {
   const priceSuffix = property.transactionType === 'miete' ? ' / Monat' : ''
+  const backgroundImage =
+    property.images[position === 1 ? 1 : 0] ?? property.images[0]
   const sceneRef = useRef<HTMLElement>(null)
   const prefersReducedMotion = useReducedMotion()
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 479px)')
+    const updateScreenSize = () => setIsSmallScreen(mediaQuery.matches)
+
+    updateScreenSize()
+    mediaQuery.addEventListener('change', updateScreenSize)
+
+    return () => mediaQuery.removeEventListener('change', updateScreenSize)
+  }, [])
   const { scrollYProgress } = useScroll({
     target: sceneRef,
     offset: ['start end', 'end start'],
@@ -36,8 +49,8 @@ function FeaturedPropertyScene({
         aria-hidden="true"
         className="absolute -inset-y-[35%] inset-x-0 -z-20 scale-105 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
-          backgroundImage: `url(${property.images[0]})`,
-          y: prefersReducedMotion ? 0 : imageY,
+          backgroundImage: `url(${backgroundImage})`,
+          y: prefersReducedMotion || isSmallScreen ? 0 : imageY,
         }}
       />
       <div
@@ -71,7 +84,6 @@ function FeaturedPropertyScene({
             to="/immobilien/$propertyId"
             params={{ propertyId: property.id }}
             className="mt-7 inline-flex min-h-12 items-center gap-2 border border-white/70 bg-black/25 px-5 font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
-            aria-label={`${property.title} ansehen`}
           >
             Immobilie ansehen
             <ArrowUpRight size={18} aria-hidden="true" />

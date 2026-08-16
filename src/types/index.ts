@@ -1,3 +1,4 @@
+export type { ContactFormData } from './contact'
 export type {
   Address,
   Agent,
@@ -10,3 +11,4 @@ export type {
   PropertyType,
   TransactionType,
 } from './property'
+export type { ValuationFormData, ValuationPropertyType } from './valuation'
