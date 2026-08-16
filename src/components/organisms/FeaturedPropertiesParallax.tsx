@@ -102,7 +102,7 @@ export function FeaturedPropertiesParallax() {
   return (
     <section
       aria-labelledby="featured-properties-title"
-      className="bg-ink-950"
+      className="theme-always-dark bg-ink-950"
     >
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
         <Eyebrow>Exklusive Auswahl</Eyebrow>

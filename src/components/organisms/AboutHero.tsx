@@ -3,7 +3,7 @@ import { Eyebrow } from '../atoms/Eyebrow'
 
 export function AboutHero() {
   return (
-    <section className="relative isolate min-h-[72svh] overflow-hidden bg-ink-950 text-white">
+    <section className="theme-always-dark relative isolate min-h-[72svh] overflow-hidden bg-ink-950 text-white">
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-20 scale-105 bg-cover bg-center bg-no-repeat lg:bg-fixed"

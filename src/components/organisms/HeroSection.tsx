@@ -6,7 +6,7 @@ import { QuickSearchForm } from "../molecules/QuickSearchForm";
 
 export function HeroSection() {
   return (
-    <section className="relative isolate min-h-[85svh] overflow-hidden bg-ink-950 text-white">
+    <section className="theme-always-dark relative isolate min-h-[85svh] overflow-hidden bg-ink-950 text-white">
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-20 scale-105 bg-cover bg-center bg-no-repeat bg-fixed max-[479px]:bg-scroll motion-reduce:bg-scroll"

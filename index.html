@@ -7,6 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ImmobilieWeb – Immobilien kaufen, mieten und professionell bewerten lassen." />
     <title>ImmobilieWeb | Immobilien in Deutschland</title>
+    <script>
+      (() => {
+        const storageKey = 'immobilieweb-theme'
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+
+        try {
+          const storedTheme = window.localStorage.getItem(storageKey)
+          document.documentElement.dataset.theme =
+            storedTheme === 'dark' || storedTheme === 'light'
+              ? storedTheme
+              : systemTheme
+        } catch {
+          document.documentElement.dataset.theme = systemTheme
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -35,7 +35,7 @@ export function PropertyCard({
 
   return (
     <article className="group overflow-hidden border border-white/10 bg-white/[0.04] transition hover:-translate-y-1 hover:border-gold-500/50">
-      <div className="relative aspect-[4/3] overflow-hidden bg-black">
+      <div className="theme-always-dark relative aspect-[4/3] overflow-hidden bg-black">
         <img
           src={property.images[0]}
           alt={`${property.title} in ${property.address.city}`}
