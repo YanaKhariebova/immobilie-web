@@ -1,5 +1,20 @@
 import { Eyebrow } from "../atoms/Eyebrow";
 import { TestimonialCard } from "../molecules/TestimonialCard";
+import { useState } from 'react'
+import { TestimonialForm } from './TestimonialForm'
+import type { Testimonial } from '../../types/testimonial'
+import { loadTestimonials, saveTestimonials } from '../../utils/testimonialStorage'
+
+function readStoredTestimonials() {
+  try {
+    return { reviews: loadTestimonials(), error: '' }
+  } catch {
+    return {
+      reviews: [] as Testimonial[],
+      error: 'Gespeicherte Bewertungen konnten nicht gelesen werden. Prüfen Sie die Website-Daten und die Speichereinstellungen Ihres Browsers.',
+    }
+  }
+}
 
 const testimonials = [
   {
@@ -23,6 +38,24 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const [stored, setStored] = useState(readStoredTestimonials)
+
+  const handleSave = (testimonial: Testimonial): boolean => {
+    try {
+      // Read again before saving so reviews from another tab are retained.
+      const reviews = [testimonial, ...loadTestimonials()]
+      saveTestimonials(reviews)
+      setStored({ reviews, error: '' })
+      return true
+    } catch {
+      setStored((current) => ({
+        ...current,
+        error: 'Die Bewertung konnte nicht gespeichert werden. Der Browserspeicher ist möglicherweise voll, gesperrt oder enthält beschädigte Daten.',
+      }))
+      return false
+    }
+  }
+
   return (
     <section
       aria-labelledby="testimonials-title"
@@ -41,10 +74,23 @@ export function TestimonialsSection() {
           Blick auf jedes Detail.
         </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {stored.reviews.map((testimonial) => (
+            <TestimonialCard
+              key={testimonial.id}
+              {...testimonial}
+              context="Lokal gespeicherte Bewertung · Demo"
+            />
+          ))}
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.name} {...testimonial} />
           ))}
         </div>
+        {stored.error && (
+          <p role="alert" className="mt-6 text-sm leading-6 text-white/75">
+            {stored.error}
+          </p>
+        )}
+        <TestimonialForm onSave={handleSave} />
       </div>
     </section>
   );

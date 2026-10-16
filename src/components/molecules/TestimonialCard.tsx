@@ -4,22 +4,24 @@ interface TestimonialCardProps {
   quote: string
   name: string
   context: string
+  rating?: number
 }
 
 export function TestimonialCard({
   quote,
   name,
   context,
+  rating = 5,
 }: TestimonialCardProps) {
   return (
-    <figure className="flex h-full flex-col border border-white/10 bg-white/[0.04] p-6 sm:p-7">
+    <figure className="flex h-full min-w-0 flex-col border border-white/10 bg-white/[0.04] p-6 [overflow-wrap:anywhere] sm:p-7">
       <div
         className="flex gap-1 text-gold-500"
         role="img"
-        aria-label="5 von 5 Sternen"
+        aria-label={`${rating} von 5 Sternen`}
       >
         {Array.from({ length: 5 }, (_, index) => (
-          <Star key={index} size={16} fill="currentColor" aria-hidden="true" />
+          <Star key={index} size={16} fill={index < rating ? 'currentColor' : 'none'} aria-hidden="true" />
         ))}
       </div>
       <blockquote className="mt-6 flex-1 font-display text-2xl leading-9 text-white">

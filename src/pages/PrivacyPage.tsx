@@ -111,6 +111,16 @@ export function PrivacyPage() {
           oder nicht technisch notwendige Cookies ergänzt werden, müssen
           Einwilligungsmanagement und Datenschutzerklärung angepasst werden.
         </p>
+        <h3 className={subheadingClassName}>Lokal gespeicherte Bewertungen</h3>
+        <p className="mt-3">
+          Die Bewertungsfunktion für Erfahrungsberichte speichert Anzeigename,
+          Sternebewertung und Text im localStorage dieses Browsers unter dem
+          Schlüssel „immobilieweb-testimonials“. Es erfolgt keine Übertragung
+          an einen Server. Die Einträge bleiben nach dem Neuladen erhalten,
+          sind nur in diesem Browser sichtbar und werden durch das Löschen
+          der Website-Daten im Browser entfernt. Für die Demo sollen nur
+          erfundene Anzeigenamen und keine persönlichen Daten verwendet werden.
+        </p>
       </section>
 
       <section aria-labelledby="privacy-rights-title">

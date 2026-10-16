@@ -37,18 +37,18 @@
   }
 }
 
-html[data-theme='light'] {
+html[data-theme="light"] {
   --color-ink-950: #f4f0e8;
   --color-ink-700: #55594f;
   --color-white: #20231d;
   color-scheme: light;
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   color-scheme: dark;
 }
 
-html[data-theme='light'] .theme-always-dark {
+html[data-theme="light"] .theme-always-dark {
   --color-ink-950: #171814;
   --color-white: #ffffff;
   color-scheme: dark;
@@ -70,26 +70,26 @@ body,
 }
 
 @layer utilities {
-  html[data-theme='light'] .theme-chrome {
+  html[data-theme="light"] .theme-chrome {
     background-color: rgb(255 255 255 / 82%);
     box-shadow: 0 10px 30px rgb(38 35 28 / 12%);
   }
 
-  html[data-theme='light'] footer.theme-chrome {
+  html[data-theme="light"] footer.theme-chrome {
     box-shadow: 0 -10px 30px rgb(38 35 28 / 10%);
   }
 
-  html[data-theme='light'] .bg-white\/\[0\.04\]:not(.theme-always-dark *) {
+  html[data-theme="light"] .bg-white\/\[0\.04\]:not(.theme-always-dark *) {
     background-color: rgb(255 255 255 / 78%);
   }
 
-  html[data-theme='light'] .bg-black\/25:not(.theme-always-dark *),
-  html[data-theme='light'] .bg-black\/30:not(.theme-always-dark *),
-  html[data-theme='light'] .bg-black\/35:not(.theme-always-dark *) {
+  html[data-theme="light"] .bg-black\/25:not(.theme-always-dark *),
+  html[data-theme="light"] .bg-black\/30:not(.theme-always-dark *),
+  html[data-theme="light"] .bg-black\/35:not(.theme-always-dark *) {
     background-color: rgb(255 255 255 / 72%);
   }
 
-  html[data-theme='light'] .theme-chrome .hover\:text-sand-100:hover {
+  html[data-theme="light"] .theme-chrome .hover\:text-sand-100:hover {
     color: var(--color-gold-600);
   }
 }
