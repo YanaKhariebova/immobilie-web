@@ -3,6 +3,7 @@ import { PropertyGrid } from "../components/organisms/PropertyGrid";
 import type { Property, PropertyFilterSearch } from "../types";
 import { useEffect, useState } from "react";
 import { loadProperties } from "../data/loadProperties";
+import { LoaderCircle } from "lucide-react";
 
 interface PropertiesPageProps {
   filters: PropertyFilterSearch;
@@ -30,7 +31,9 @@ export function PropertiesPage({
         if (active) setProperties(data);
       } catch {
         if (active) {
-          setError("Die Immobilien konnten nicht geladen werden. Bitte versuchen Sie es erneut.");
+          setError(
+            "Die Immobilien konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+          );
         }
       } finally {
         if (active) setIsLoading(false);
@@ -105,12 +108,21 @@ export function PropertiesPage({
 
         <div className="mt-14 lg:mt-20">
           {isLoading ? (
-            <p role="status" className="py-10 text-white/75">
-              Immobilien werden geladen …
-            </p>
+            <div
+              role="status"
+              className="flex items-center justify-center gap-3 py-10 text-white/75"
+            >
+              <LoaderCircle
+                aria-hidden="true"
+                className="size-6 animate-spin motion-reduce:animate-none"
+              />
+              <span>Immobilien werden geladen …</span>
+            </div>
           ) : error ? (
             <div className="border border-white/15 bg-white/[0.04] p-5 sm:p-8">
-              <p role="alert" className="leading-7 text-white/75">{error}</p>
+              <p role="alert" className="leading-7 text-white/75">
+                {error}
+              </p>
               <button
                 type="button"
                 onClick={handleRetry}
