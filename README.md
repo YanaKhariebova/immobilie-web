@@ -74,7 +74,7 @@ Ziel ist eine responsive, verständliche Oberfläche mit wiederverwendbaren Komp
 | Lucide React                   | Icons für Navigation, Formulare und Immobiliendaten                      |
 | ESLint und TypeScript-Compiler | Statische Codeprüfung und Typprüfung                                     |
 
-Die Kursgrundlage für das Routing ist die lokale DCI-Lektion **React 011** sowie der Guide `2 React/guides/install.tanstack.router.md` im Course-Wiki. Routen liegen in `src/routes/`; das Vite-Plugin erzeugt `src/routeTree.gen.ts` automatisch. Diese Datei wird nicht manuell bearbeitet. Der `RouterProvider` wird im Projekt direkt in `src/main.tsx` eingebunden.
+Das Routing erfolgt dateibasiert mit TanStack Router. Die Routen liegen in `src/routes/`; der Route Tree wird automatisch generiert. Der `RouterProvider` ist in `src/main.tsx` eingebunden.
 
 ### 🧩 Komponentenstruktur nach Atomic Design
 
